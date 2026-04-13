@@ -1,4 +1,4 @@
-/* ===================================================
+﻿/* ===================================================
    MuteGuard — Main JavaScript
    =================================================== */
 
@@ -155,7 +155,7 @@
   /* ── Hero version fetch from GitHub Releases (graceful fallback) ── */
   const versionEl = document.getElementById('version-tag');
   if (versionEl) {
-    fetch('https://api.github.com/repos/xionraj/MuteGuard_Public/releases/latest', {
+    fetch('https://api.github.com/repos/xionraj/MuteGuard/releases/latest', {
       headers: { Accept: 'application/vnd.github.v3+json' }
     })
       .then(r => r.ok ? r.json() : null)
