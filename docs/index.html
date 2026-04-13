@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- SEO -->
+  <title>MuteGuard — Instant Mic & Speaker Control for Windows 10/11</title>
+  <meta name="description" content="MuteGuard is a free, lightweight Windows audio utility that puts your mic and speaker mute toggles right at your fingertips. Tray icons, keyboard shortcuts, floating mini window and more." />
+  <meta name="keywords" content="MuteGuard, mute microphone Windows, mic mute toggle, Windows 11 audio control, system tray mute, keyboard shortcut mic, free audio utility" />
+  <meta name="author" content="xionraj" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://xionraj.github.io/MuteGuard_Public/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MuteGuard — Instant Mic & Speaker Control for Windows" />
+  <meta property="og:description" content="Free, lightweight Windows audio utility. Tray icons, global hotkeys, floating mini window. One click to mute — always." />
+  <meta property="og:image" content="https://xionraj.github.io/MuteGuard_Public/assets/images/icon.png" />
+  <meta property="og:url" content="https://xionraj.github.io/MuteGuard_Public/" />
+  <meta property="og:site_name" content="MuteGuard" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MuteGuard — Instant Mic & Speaker Control for Windows" />
+  <meta name="twitter:description" content="Free Windows utility for instant mic & speaker mute. Global hotkeys, tray icons, floating widget." />
+  <meta name="twitter:image" content="https://xionraj.github.io/MuteGuard_Public/assets/images/icon.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/icon.png" />
+  <link rel="apple-touch-icon" href="assets/images/icon.png" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MuteGuard",
+    "operatingSystem": "Windows 10, Windows 11",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Lightweight Windows audio control utility for instant mic and speaker mute toggling.",
+    "url": "https://xionraj.github.io/MuteGuard_Public/",
+    "author": { "@type": "Person", "name": "xionraj", "url": "https://github.com/xionraj" }
+  }
+  </script>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="MuteGuard Home">
+      <img src="assets/images/icon.png" alt="MuteGuard icon" width="32" height="32" />
+      Mute<span>Guard</span>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#visuals">Gallery</a></li>
+      <li><a href="#why">Why MuteGuard</a></li>
+      <li><a href="#audience">Who's It For</a></li>
+      <li><a href="#donate">Support</a></li>
+      <li>
+        <a href="https://github.com/xionraj/MuteGuard_Public/releases/latest"
+           class="btn-nav"
+           id="nav-download"
+           target="_blank"
+           rel="noopener"
+           data-download>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Free
+        </a>
+      </li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+  <a href="#features">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+    Features
+  </a>
+  <a href="#visuals">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+    Gallery
+  </a>
+  <a href="#why">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Why MuteGuard
+  </a>
+  <a href="#audience">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    Who's It For
+  </a>
+  <a href="#donate">♥ Support the Project</a>
+  <a href="https://github.com/xionraj/MuteGuard_Public/releases/latest" target="_blank" rel="noopener" class="btn-nav" style="justify-content:center;" data-download>
+    ⬇ Download Free
+  </a>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg">
+    <div class="hero-bg-image" aria-hidden="true"></div>
+    <div class="hero-bg-gradient" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-inner">
+      <!-- Left: Copy -->
+      <div class="hero-content">
+        <div class="hero-badge" aria-label="Version">
+          <span class="badge-pill">v4.0</span>
+          Now available — Free forever
+        </div>
+
+        <h1 class="hero-title">
+          Your Mic.<br/>
+          <span class="gradient-text">Your Control.</span><br/>
+          One Click Away.
+        </h1>
+
+        <p class="hero-desc">
+          MuteGuard is a lightweight Windows 10/11 audio utility that puts instant mic and
+          speaker mute toggles right at your fingertips — no more diving into system
+          settings mid-call.
+        </p>
+
+        <div class="hero-cta">
+          <a href="https://github.com/xionraj/MuteGuard_Public/releases/latest"
+             class="btn btn-primary btn-lg"
+             id="btn-download-main"
+             target="_blank"
+             rel="noopener"
+             data-download
+             aria-label="Download MuteGuard for free">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Free
+          </a>
+          <a href="https://github.com/xionraj/MuteGuard_Public"
+             class="btn btn-outline btn-lg"
+             target="_blank"
+             rel="noopener"
+             aria-label="View source on GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Windows 10 &amp; 11
+          </div>
+          <div class="hero-meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            100% Free &amp; No Ads
+          </div>
+          <div class="hero-meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            No Account Required
+          </div>
+          <div class="hero-meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Lightweight &lt; 2 MB
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Visual -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-app-preview">
+          <div class="hero-icon-ring">
+            <div class="hero-icon-main">
+              <img src="assets/images/icon.png" alt="MuteGuard application icon" width="180" height="180" />
+            </div>
+          </div>
+
+          <div class="floating-card floating-card-1">
+            <span class="dot dot-green"></span>
+            Mic Active
+          </div>
+          <div class="floating-card floating-card-2">
+            <span class="dot dot-red"></span>
+            Mic Muted
+          </div>
+          <div class="floating-card floating-card-3">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 9h.01M15 9h.01M12 13c.56 1 1.44 2 3 2"/><path d="M4.87 19l.13-9.5C5 6.4 8.3 4 12 4s7 2.4 7 5.5V19"/></svg>
+            Win + Alt + M
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ STATUS STRIP ═══════════════ -->
+<div class="status-strip" aria-hidden="true">
+  <div class="status-strip-inner">
+    <span class="strip-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Global Keyboard Shortcuts
+    </span>
+    <span class="strip-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Dual System Tray Icons
+    </span>
+    <span class="strip-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Floating Mini Window
+    </span>
+    <span class="strip-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Dark Mode &amp; Light Mode
+    </span>
+    <span class="strip-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Smart Device Detection
+    </span>
+    <span class="strip-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Persistent Settings
+    </span>
+    <span class="strip-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Custom Icons &amp; Themes
+    </span>
+    <span class="strip-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Run at Startup
+    </span>
+    <span class="strip-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      100% Free
+    </span>
+  </div>
+</div>
+
+<!-- ═══════════════ FEATURES ═══════════════ -->
+<section id="features" class="section-pad">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-label">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Core Features
+      </div>
+      <h2 class="section-title">Everything you need.<br/><span class="gradient-text">Nothing you don't.</span></h2>
+      <p class="section-subtitle">MuteGuard v4.0 packs 15+ features designed for real workflows — from quick mute to full customization.</p>
+    </div>
+
+    <div class="features-grid" role="list">
+
+      <!-- Dual Audio Control -->
+      <article class="feature-card" role="listitem" data-reveal data-reveal-delay="1">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
+        <h3 class="feature-title">Dual Audio Control</h3>
+        <p class="feature-desc">Independently mute and unmute both your microphone and speaker/output device from a single app. One click is all it takes.</p>
+      </article>
+
+      <!-- Keyboard Shortcuts -->
+      <article class="feature-card" role="listitem" data-reveal data-reveal-delay="2">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.001M10 10h.001M14 10h.001M18 10h.001M8 14h8"/></svg>
+        </div>
+        <h3 class="feature-title">Customizable Keyboard Shortcuts</h3>
+        <p class="feature-desc">Toggle mic with <strong>Win + Alt + M</strong> and speaker with <strong>Win + Alt + S</strong> by default. Rebind to any key combo from the Settings panel.</p>
+      </article>
+
+      <!-- Dual Tray Icons -->
+      <article class="feature-card" role="listitem" data-reveal data-reveal-delay="3">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="feature-title">Dual System Tray Icons</h3>
+        <p class="feature-desc">Two dedicated tray icons — one for mic, one for speaker — always visible in your taskbar. Icons update in real time. Single-click mic tray to instantly toggle it.</p>
+      </article>
+
+      <!-- Floating Mini Window -->
+      <article class="feature-card" role="listitem" data-reveal data-reveal-delay="1">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+        </div>
+        <h3 class="feature-title">Floating Mini Window</h3>
+        <p class="feature-desc">An always-on-top, borderless mini widget sits anywhere on your screen. Draggable, scalable, toggleable — with its position saved automatically between sessions.</p>
+      </article>
+
+      <!-- Smart Device Detection -->
+      <article class="feature-card" role="listitem" data-reveal data-reveal-delay="2">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3 class="feature-title">Smart Device Detection</h3>
+        <p class="feature-desc">Automatically scans your system for all connected microphones and audio output devices. Switch between devices using simple dropdowns — no manual config needed.</p>
+      </article>
+
+      <!-- Real-Time Status -->
+      <article class="feature-card" role="listitem" data-reveal data-reveal-delay="3">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 class="feature-title">Real-Time Status Display</h3>
+        <p class="feature-desc">The main control panel shows live mic and speaker status in bold, color-coded text — green for active, red for muted — so you always know your audio state at a glance.</p>
+      </article>
+
+      <!-- Right-Click Menus -->
+      <article class="feature-card" role="listitem" data-reveal data-reveal-delay="1">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </div>
+        <h3 class="feature-title">Right-Click Tray Context Menus</h3>
+        <p class="feature-desc">Quick access from both tray icons — toggle, open control panel, open Windows Sound Settings, open Mic Privacy settings, and exit. All without opening the full app.</p>
+      </article>
+
+      <!-- Custom Icons -->
+      <article class="feature-card" role="listitem" data-reveal data-reveal-delay="2">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        </div>
+        <h3 class="feature-title">Custom Icons</h3>
+        <p class="feature-desc">Pick any icon from any .dll or .ico file on your system for all four states — mic muted, mic active, speaker on, speaker off. Uses the native Windows icon picker dialog.</p>
+      </article>
+
+      <!-- Dark/Light Mode -->
+      <article class="feature-card" role="listitem" data-reveal data-reveal-delay="3">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
+        </div>
+        <h3 class="feature-title">Dark Mode &amp; Light Mode</h3>
+        <p class="feature-desc">Switch between a clean Windows 11 light theme and a sleek dark mode. Icons automatically swap to match the selected theme for a perfectly cohesive look.</p>
+      </article>
+
+      <!-- Run at Startup -->
+      <article class="feature-card" role="listitem" data-reveal data-reveal-delay="1">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        </div>
+        <h3 class="feature-title">Run at Startup</h3>
+        <p class="feature-desc">Enable MuteGuard to launch automatically with Windows — zero manual effort needed every time you boot. It's just there, ready for you.</p>
+      </article>
+
+      <!-- Mini Window Customization -->
+      <article class="feature-card" role="listitem" data-reveal data-reveal-delay="2">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+        </div>
+        <h3 class="feature-title">Mini Window Customization</h3>
+        <p class="feature-desc">Adjust mini window size with a slider (1–200% scale), toggle a visible border, choose mic or speaker icons or both, and enable DPI-aware scaling for HiDPI displays.</p>
+      </article>
+
+      <!-- Persistent Settings -->
+      <article class="feature-card" role="listitem" data-reveal data-reveal-delay="3">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        </div>
+        <h3 class="feature-title">Persistent Settings</h3>
+        <p class="feature-desc">All your preferences — devices, shortcut keys, window position, theme, icon paths, startup — are saved to a local .ini file and restored automatically every session.</p>
+      </article>
+
+    </div>
+
+    <!-- Shortcut Showcase -->
+    <div class="shortcut-showcase" data-reveal>
+      <div class="shortcut-group">
+        <div class="shortcut-row" id="mic-shortcut">
+          <span class="shortcut-label">Toggle Microphone</span>
+          <div class="kbd-group">
+            <kbd>Win</kbd>
+            <span class="kbd-sep">+</span>
+            <kbd>Alt</kbd>
+            <span class="kbd-sep">+</span>
+            <kbd>M</kbd>
+          </div>
+        </div>
+        <div class="shortcut-row" id="speaker-shortcut">
+          <span class="shortcut-label">Toggle Speaker</span>
+          <div class="kbd-group">
+            <kbd>Win</kbd>
+            <span class="kbd-sep">+</span>
+            <kbd>Alt</kbd>
+            <span class="kbd-sep">+</span>
+            <kbd>S</kbd>
+          </div>
+        </div>
+      </div>
+      <div class="shortcut-desc">
+        <h4>Fully Rebindable Shortcuts</h4>
+        <p>The default shortcuts are just starting points. Head into MuteGuard's Settings panel to assign any key combo you prefer — so it fits your natural workflow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ GALLERY / VISUALS ═══════════════ -->
+<section id="visuals" class="section-pad">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-label">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Gallery
+      </div>
+      <h2 class="section-title">See It in <span class="gradient-text">Action</span></h2>
+      <p class="section-subtitle">From the floating mini widget to the real-time tray icons — MuteGuard is built to feel native to Windows 11.</p>
+    </div>
+
+    <div class="visuals-grid">
+      <article class="visual-card" data-reveal data-reveal-delay="1">
+        <img src="assets/images/mini-widget.png" alt="MuteGuard floating mini window widget showing mic and speaker icons" loading="lazy" width="600" height="220" />
+        <div class="visual-card-body">
+          <h3 class="visual-card-title">Floating Mini Window</h3>
+          <p class="visual-card-desc">An always-on-top acrylic widget that sits anywhere on your desktop. Draggable with right-click, scalable from 1–200%, and toggled via tray or shortcut.</p>
+        </div>
+      </article>
+
+      <article class="visual-card" data-reveal data-reveal-delay="2">
+        <img src="assets/images/tray-preview.png" alt="MuteGuard system tray icons showing mic and speaker status in Windows 11 taskbar" loading="lazy" width="600" height="220" />
+        <div class="visual-card-body">
+          <h3 class="visual-card-title">Dual System Tray Icons</h3>
+          <p class="visual-card-desc">Two live tray icons update in real time to show your current mic and speaker state. Right-click either for quick-access menus — no need to open the main window.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ WHY MUTEGUARD ═══════════════ -->
+<section id="why" class="section-pad">
+  <div class="container">
+    <div data-reveal>
+      <div class="section-label">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Why MuteGuard
+      </div>
+      <h2 class="section-title">Stop the awkward unmute moments.<br/><span class="gradient-text">For good.</span></h2>
+      <p class="section-subtitle">Whether it's Zoom, Teams, Google Meet, or any voice call — MuteGuard gives you an instant, always-accessible mute button so accidental background noise never interrupts a meeting again.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card" data-reveal data-reveal-delay="1">
+        <div class="why-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="why-text">
+          <h4>No More Settings Hunting</h4>
+          <p>Instead of right-clicking the taskbar, opening Sound settings, and navigating device panels, MuteGuard gives you everything in one click or one keypress.</p>
+        </div>
+      </div>
+
+      <div class="why-card" data-reveal data-reveal-delay="2">
+        <div class="why-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="why-text">
+          <h4>Built for Windows 11</h4>
+          <p>The UI, theme system, and tray behavior are all designed to match the native Windows 11 look and feel — it doesn't feel like a third-party tool bolted on.</p>
+        </div>
+      </div>
+
+      <div class="why-card" data-reveal data-reveal-delay="3">
+        <div class="why-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="why-text">
+          <h4>Runs Silently in the Background</h4>
+          <p>MuteGuard is lightweight and stays out of your way until you need it. No background processes hogging resources — it sips minimal CPU and RAM.</p>
+        </div>
+      </div>
+
+      <div class="why-card" data-reveal data-reveal-delay="4">
+        <div class="why-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div class="why-text">
+          <h4>Fully Customizable — Yours to Own</h4>
+          <p>From shortcut keys to icons to window size to theme — MuteGuard adapts to your workflow, not the other way around. Every preference is saved and restored automatically.</p>
+        </div>
+      </div>
+
+      <div class="why-card" data-reveal data-reveal-delay="1">
+        <div class="why-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="why-text">
+          <h4>Graceful Error Handling</h4>
+          <p>If a device is temporarily unavailable, MuteGuard retries up to 3 times before surfacing a tray notification — preventing false mute states and phantom toggles.</p>
+        </div>
+      </div>
+
+      <div class="why-card" data-reveal data-reveal-delay="2">
+        <div class="why-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="why-text">
+          <h4>Free &amp; Open — Forever</h4>
+          <p>No subscriptions. No account required. No ads. No data collection. MuteGuard is completely free to use — if you love it, you can optionally support development via GitHub Sponsors.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ AUDIENCE ═══════════════ -->
+<section id="audience" class="section-pad">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-label">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Who's It For
+      </div>
+      <h2 class="section-title">Perfect for <span class="gradient-text">anyone</span> who values their audio.</h2>
+      <p class="section-subtitle">Fast, reliable audio control without interrupting what you're doing — whatever your use case.</p>
+    </div>
+
+    <div class="audience-grid">
+      <div class="audience-card" data-reveal data-reveal-delay="1">
+        <span class="icon" aria-hidden="true">💼</span>
+        <span>Remote Workers</span>
+      </div>
+      <div class="audience-card" data-reveal data-reveal-delay="2">
+        <span class="icon" aria-hidden="true">🎙️</span>
+        <span>Podcasters</span>
+      </div>
+      <div class="audience-card" data-reveal data-reveal-delay="3">
+        <span class="icon" aria-hidden="true">🎮</span>
+        <span>Gamers</span>
+      </div>
+      <div class="audience-card" data-reveal data-reveal-delay="4">
+        <span class="icon" aria-hidden="true">📡</span>
+        <span>Streamers</span>
+      </div>
+      <div class="audience-card" data-reveal data-reveal-delay="5">
+        <span class="icon" aria-hidden="true">🎓</span>
+        <span>Students</span>
+      </div>
+      <div class="audience-card" data-reveal data-reveal-delay="1">
+        <span class="icon" aria-hidden="true">🏠</span>
+        <span>Work From Home</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ DOWNLOAD ═══════════════ -->
+<section id="download" class="section-pad">
+  <div class="container">
+    <div class="download-box" data-reveal>
+      <div class="section-label" style="margin:0 auto 20px;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download
+      </div>
+      <h2 class="section-title">Get MuteGuard<span class="gradient-text">.</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Free, lightweight, and ready in seconds. No installer wizard, no sign-up — just download and run.</p>
+
+      <div class="version-badge" id="version-tag">v4.0 — Latest Release</div>
+
+      <div class="req-grid">
+        <div class="req-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Windows 10 (64-bit)
+        </div>
+        <div class="req-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Windows 11 (64-bit)
+        </div>
+        <div class="req-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          &lt; 2 MB download
+        </div>
+        <div class="req-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          No Installation Required
+        </div>
+      </div>
+
+      <div class="download-cta">
+        <a href="https://github.com/xionraj/MuteGuard_Public/releases/latest"
+           class="btn btn-primary btn-lg"
+           target="_blank"
+           rel="noopener"
+           data-download
+           aria-label="Download MuteGuard latest release from GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download for Windows
+        </a>
+        <a href="https://github.com/xionraj/MuteGuard_Public/releases"
+           class="btn btn-outline btn-lg"
+           target="_blank"
+           rel="noopener"
+           aria-label="View all MuteGuard releases on GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          All Releases
+        </a>
+      </div>
+
+      <p class="download-disclaimer">
+        By downloading, you agree to the <a href="https://github.com/xionraj/MuteGuard_Public/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>.
+        No telemetry. No data collected. Your privacy is respected.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ DONATE ═══════════════ -->
+<section id="donate" class="section-pad">
+  <div class="container">
+    <div class="donate-inner">
+      <!-- Left: Text -->
+      <div class="donate-text" data-reveal>
+        <div class="section-label">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Support the Project
+        </div>
+        <h2 class="section-title">MuteGuard is <span class="gradient-text">free</span>.<br/>Your support keeps it alive.</h2>
+        <p>MuteGuard is developed in my spare time and offered completely free — no ads, no subscriptions, no paywalls. If it has saved you from even one awkward on-mute moment, consider buying me a coffee!</p>
+        <p>Every contribution — however small — directly funds new features, bug fixes, and continued Windows compatibility updates. You're supporting an indie developer who genuinely cares about your experience.</p>
+        <p>And if you can't donate, simply sharing MuteGuard with a friend or colleague means just as much. Thank you. ♥</p>
+      </div>
+
+      <!-- Right: Donate Card -->
+      <div class="donate-card" data-reveal data-reveal-delay="3">
+        <span class="heart-emoji" aria-hidden="true">♥</span>
+        <h3>Sponsor MuteGuard</h3>
+        <p>Support active development and help shape what comes next — new features, improvements, and faster releases.</p>
+
+        <ul class="donate-perks" aria-label="Sponsor perks">
+          <li>Keep MuteGuard free for everyone</li>
+          <li>Fund new features &amp; Windows updates</li>
+          <li>Support an indie developer</li>
+          <li>Get a warm fuzzy feeling 😊</li>
+        </ul>
+
+        <a href="https://github.com/sponsors/xionraj"
+           class="btn btn-sponsor"
+           target="_blank"
+           rel="noopener"
+           style="width:100%;justify-content:center;"
+           aria-label="Sponsor xionraj on GitHub Sponsors">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Sponsor on GitHub
+        </a>
+
+        <p style="font-size:0.78rem;color:var(--color-text-subtle);margin-top:16px;margin-bottom:0;">
+          Powered by <a href="https://github.com/sponsors" target="_blank" rel="noopener" style="color:var(--color-text-subtle);text-decoration:underline;">GitHub Sponsors</a> — secure &amp; transparent.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo" aria-label="Back to top">
+          <img src="assets/images/icon.png" alt="MuteGuard icon" width="28" height="28" />
+          Mute<span>Guard</span>
+        </a>
+        <p>A lightweight, free Windows 10/11 audio utility for instant mic and speaker mute control. Built with care for remote workers, streamers, gamers, and anyone who values their audio.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#visuals">Gallery</a></li>
+          <li><a href="#why">Why MuteGuard</a></li>
+          <li><a href="#audience">Who's It For</a></li>
+          <li><a href="#download">Download</a></li>
+          <li><a href="#donate">Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li>
+            <a href="https://github.com/xionraj/MuteGuard_Public" target="_blank" rel="noopener">
+              GitHub Repository
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/xionraj/MuteGuard_Public/releases" target="_blank" rel="noopener">
+              Releases
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/xionraj/MuteGuard_Public/issues" target="_blank" rel="noopener">
+              Report a Bug
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/xionraj/MuteGuard_Public/blob/main/LICENSE" target="_blank" rel="noopener">
+              MIT License
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/sponsors/xionraj" target="_blank" rel="noopener">
+              ♥ Sponsor
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        &copy; <span id="year">2026</span> <a href="https://github.com/xionraj" target="_blank" rel="noopener">xionraj</a>. 
+        Released under the <a href="https://github.com/xionraj/MuteGuard_Public/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>. 
+        Made with ♥ for the Windows community.
+      </p>
+      <div class="social-links">
+        <a href="https://github.com/xionraj/MuteGuard_Public"
+           class="social-link"
+           target="_blank"
+           rel="noopener"
+           aria-label="GitHub Repository">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://github.com/sponsors/xionraj"
+           class="social-link"
+           target="_blank"
+           rel="noopener"
+           aria-label="Sponsor on GitHub"
+           style="color:#e85c8d;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast Container -->
+<div id="toast" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Main JS -->
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
