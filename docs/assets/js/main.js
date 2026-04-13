@@ -1,4 +1,4 @@
-﻿/* ===================================================
+/* ===================================================
    MuteGuard — Main JavaScript
    =================================================== */
 
@@ -69,8 +69,13 @@
   /* ── Status strip duplication for infinite marquee ── */
   const stripInner = document.querySelector('.status-strip-inner');
   if (stripInner) {
-    const clone = stripInner.cloneNode(true);
-    stripInner.parentElement.appendChild(clone);
+    // Clone the items INSIDE the strip (not the strip itself) so one
+    // animated element holds 2× items and translateX(-50%) loops cleanly.
+    Array.from(stripInner.children).forEach(item => {
+      const clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      stripInner.appendChild(clone);
+    });
   }
 
   /* ── Copy download link / show toast ── */
