@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +8,8 @@
 
   <!-- SEO -->
   <title>Release Notes — MuteGuard</title>
-  <meta name="description" content="Full release notes and changelog for MuteGuard — the free Windows 10/11 mic and speaker mute utility. See what's new in every version." />
+  <meta name="description"
+    content="Full release notes and changelog for MuteGuard — the free Windows 10/11 mic and speaker mute utility. See what's new in every version." />
   <meta name="author" content="xionraj" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://xionraj.github.io/MuteGuard/release-notes.html" />
@@ -29,18 +31,20 @@
   <style>
     /* ── Release Notes page extras ── */
     .rn-hero {
-      padding: 120px 0 60px;
+      padding: 20px 0 60px;
       background: var(--color-bg);
       position: relative;
       overflow: hidden;
     }
+
     .rn-hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(63,185,80,0.07) 0%, transparent 70%);
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(63, 185, 80, 0.07) 0%, transparent 70%);
       pointer-events: none;
     }
+
     .rn-hero-inner {
       position: relative;
       z-index: 1;
@@ -49,10 +53,30 @@
       gap: 24px;
       flex-wrap: wrap;
     }
-    .rn-hero-text { flex: 1; min-width: 260px; }
-    .rn-hero-text h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 10px; }
-    .rn-hero-text p { color: var(--color-text-muted); font-size: 1rem; line-height: 1.65; }
-    .rn-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .rn-hero-text {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .rn-hero-text h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .rn-hero-text p {
+      color: var(--color-text-muted);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .rn-hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
     /* ── Filter tabs ── */
     .rn-filter {
@@ -61,6 +85,7 @@
       flex-wrap: wrap;
       margin: 48px 0 40px;
     }
+
     .filter-btn {
       padding: 8px 18px;
       border-radius: 99px;
@@ -73,7 +98,12 @@
       font-family: 'Inter', system-ui, sans-serif;
       transition: all var(--transition-fast);
     }
-    .filter-btn:hover { border-color: var(--color-accent); color: var(--color-text); }
+
+    .filter-btn:hover {
+      border-color: var(--color-accent);
+      color: var(--color-text);
+    }
+
     .filter-btn.active {
       background: var(--color-accent);
       border-color: var(--color-accent);
@@ -81,14 +111,18 @@
     }
 
     /* ── Timeline vertical line ── */
-    .rn-timeline { position: relative; }
+    .rn-timeline {
+      position: relative;
+    }
+
     .rn-timeline::before {
       content: '';
       position: absolute;
-      top: 0; bottom: 0;
+      top: 0;
+      bottom: 0;
       left: 20px;
       width: 2px;
-      background: linear-gradient(to bottom, var(--color-accent), rgba(63,185,80,0.1));
+      background: linear-gradient(to bottom, var(--color-accent), rgba(63, 185, 80, 0.1));
       border-radius: 99px;
     }
 
@@ -98,12 +132,17 @@
       padding-left: 60px;
       margin-bottom: 48px;
     }
-    .release-entry:last-child { margin-bottom: 0; }
+
+    .release-entry:last-child {
+      margin-bottom: 0;
+    }
+
     .timeline-dot {
       position: absolute;
       left: 12px;
       top: 18px;
-      width: 18px; height: 18px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: var(--color-accent);
       border: 3px solid var(--color-bg);
@@ -111,7 +150,10 @@
       z-index: 1;
       transition: transform var(--transition-med);
     }
-    .release-entry:hover .timeline-dot { transform: scale(1.2); }
+
+    .release-entry:hover .timeline-dot {
+      transform: scale(1.2);
+    }
 
     .release-card {
       background: var(--color-bg-2);
@@ -120,8 +162,9 @@
       overflow: hidden;
       transition: border-color var(--transition-med), box-shadow var(--transition-med);
     }
+
     .release-card:hover {
-      border-color: rgba(63,185,80,0.25);
+      border-color: rgba(63, 185, 80, 0.25);
       box-shadow: var(--shadow-hover);
     }
 
@@ -137,8 +180,18 @@
       cursor: pointer;
       user-select: none;
     }
-    .release-header:hover .release-version { color: var(--color-accent); }
-    .release-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+    .release-header:hover .release-version {
+      color: var(--color-accent);
+    }
+
+    .release-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .release-version {
       font-size: 1.25rem;
       font-weight: 800;
@@ -146,6 +199,7 @@
       color: var(--color-text);
       transition: color var(--transition-fast);
     }
+
     .release-tag {
       display: inline-flex;
       align-items: center;
@@ -157,9 +211,24 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
-    .tag-latest { background: rgba(63,185,80,0.15); color: var(--color-accent); border: 1px solid rgba(63,185,80,0.3); }
-    .tag-stable { background: rgba(88,166,255,0.12); color: var(--color-accent-2); border: 1px solid rgba(88,166,255,0.25); }
-    .tag-beta   { background: rgba(227,179,65,0.12); color: var(--color-amber);    border: 1px solid rgba(227,179,65,0.25); }
+
+    .tag-latest {
+      background: rgba(63, 185, 80, 0.15);
+      color: var(--color-accent);
+      border: 1px solid rgba(63, 185, 80, 0.3);
+    }
+
+    .tag-stable {
+      background: rgba(88, 166, 255, 0.12);
+      color: var(--color-accent-2);
+      border: 1px solid rgba(88, 166, 255, 0.25);
+    }
+
+    .tag-beta {
+      background: rgba(227, 179, 65, 0.12);
+      color: var(--color-amber);
+      border: 1px solid rgba(227, 179, 65, 0.25);
+    }
 
     .release-date {
       font-size: 0.82rem;
@@ -168,29 +237,45 @@
       align-items: center;
       gap: 5px;
     }
-    .release-header-right { display: flex; align-items: center; gap: 12px; }
+
+    .release-header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .chevron {
       color: var(--color-text-subtle);
       transition: transform var(--transition-med);
       flex-shrink: 0;
     }
-    .release-entry.open .chevron { transform: rotate(180deg); }
+
+    .release-entry.open .chevron {
+      transform: rotate(180deg);
+    }
 
     /* ── Card body (collapsible) ── */
     .release-body {
       padding: 0 28px;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
     }
+
     .release-entry.open .release-body {
       max-height: 2000px;
       padding: 28px;
     }
 
     /* ── Change categories ── */
-    .change-section { margin-bottom: 24px; }
-    .change-section:last-child { margin-bottom: 0; }
+    .change-section {
+      margin-bottom: 24px;
+    }
+
+    .change-section:last-child {
+      margin-bottom: 0;
+    }
+
     .change-category {
       display: flex;
       align-items: center;
@@ -202,17 +287,37 @@
       color: var(--color-text-muted);
       margin-bottom: 12px;
     }
+
     .cat-dot {
-      width: 8px; height: 8px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       flex-shrink: 0;
     }
-    .cat-new    { background: var(--color-accent); }
-    .cat-fix    { background: var(--color-red); }
-    .cat-change { background: var(--color-accent-2); }
-    .cat-improve{ background: var(--color-amber); }
 
-    .change-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .cat-new {
+      background: var(--color-accent);
+    }
+
+    .cat-fix {
+      background: var(--color-red);
+    }
+
+    .cat-change {
+      background: var(--color-accent-2);
+    }
+
+    .cat-improve {
+      background: var(--color-amber);
+    }
+
+    .change-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
     .change-list li {
       display: flex;
       gap: 10px;
@@ -220,12 +325,16 @@
       color: var(--color-text-muted);
       line-height: 1.5;
     }
+
     .change-list li::before {
       content: '—';
       color: var(--color-text-subtle);
       flex-shrink: 0;
     }
-    .change-list li strong { color: var(--color-text); }
+
+    .change-list li strong {
+      color: var(--color-text);
+    }
 
     /* ── Download row ── */
     .release-downloads {
@@ -233,11 +342,18 @@
       align-items: center;
       gap: 12px;
       padding: 20px 28px;
-      background: rgba(63,185,80,0.04);
+      background: rgba(63, 185, 80, 0.04);
       border-top: 1px solid var(--color-border);
       flex-wrap: wrap;
     }
-    .dl-label { font-size: 0.8rem; color: var(--color-text-muted); font-weight: 600; margin-right: 4px; }
+
+    .dl-label {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
     .dl-btn {
       display: inline-flex;
       align-items: center;
@@ -249,27 +365,32 @@
       text-decoration: none;
       transition: all var(--transition-fast);
     }
+
     .dl-btn-installer {
       background: var(--color-accent);
       color: #000;
     }
+
     .dl-btn-installer:hover {
       background: #4cc95e;
       color: #000;
       transform: translateY(-1px);
       box-shadow: var(--shadow-glow-green);
     }
+
     .dl-btn-portable {
       background: var(--color-bg-3);
       color: var(--color-text);
       border: 1px solid var(--color-border-2);
     }
+
     .dl-btn-portable:hover {
       background: var(--color-surface);
       border-color: var(--color-accent);
       color: var(--color-text);
       transform: translateY(-1px);
     }
+
     .dl-github {
       margin-left: auto;
       color: var(--color-text-subtle);
@@ -279,14 +400,24 @@
       gap: 6px;
       transition: color var(--transition-fast);
     }
-    .dl-github:hover { color: var(--color-text); }
+
+    .dl-github:hover {
+      color: var(--color-text);
+    }
 
     /* ── Sidebar stats (optional summary) ── */
-    .rn-layout { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; }
+    .rn-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 48px;
+      align-items: start;
+    }
+
     .rn-sidebar {
       position: sticky;
       top: 84px;
     }
+
     .sidebar-card {
       background: var(--color-bg-2);
       border: 1px solid var(--color-border);
@@ -294,6 +425,7 @@
       padding: 24px;
       margin-bottom: 16px;
     }
+
     .sidebar-card h3 {
       font-size: 0.85rem;
       font-weight: 700;
@@ -302,6 +434,7 @@
       letter-spacing: 0.08em;
       margin-bottom: 16px;
     }
+
     .stat-row {
       display: flex;
       justify-content: space-between;
@@ -310,12 +443,31 @@
       border-bottom: 1px solid var(--color-border);
       font-size: 0.875rem;
     }
-    .stat-row:last-child { border-bottom: none; }
-    .stat-label { color: var(--color-text-muted); }
-    .stat-value { color: var(--color-text); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
-    .stat-value.green { color: var(--color-accent); }
 
-    .sidebar-links { display: flex; flex-direction: column; gap: 8px; }
+    .stat-row:last-child {
+      border-bottom: none;
+    }
+
+    .stat-label {
+      color: var(--color-text-muted);
+    }
+
+    .stat-value {
+      color: var(--color-text);
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .stat-value.green {
+      color: var(--color-accent);
+    }
+
+    .sidebar-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
     .sidebar-link {
       display: flex;
       align-items: center;
@@ -330,477 +482,619 @@
       text-decoration: none;
       transition: all var(--transition-fast);
     }
+
     .sidebar-link:hover {
       background: var(--color-surface);
-      border-color: rgba(63,185,80,0.3);
+      border-color: rgba(63, 185, 80, 0.3);
       color: var(--color-text);
     }
-    .sidebar-link svg { flex-shrink: 0; color: var(--color-accent); }
+
+    .sidebar-link svg {
+      flex-shrink: 0;
+      color: var(--color-accent);
+    }
 
     @media (max-width: 900px) {
-      .rn-layout { grid-template-columns: 1fr; }
-      .rn-sidebar { position: static; }
-      .rn-timeline::before { left: 10px; }
-      .release-entry { padding-left: 40px; }
-      .timeline-dot { left: 2px; }
+      .rn-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .rn-sidebar {
+        position: static;
+      }
+
+      .rn-timeline::before {
+        left: 10px;
+      }
+
+      .release-entry {
+        padding-left: 40px;
+      }
+
+      .timeline-dot {
+        left: 2px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- ═══════════════ NAV ═══════════════ -->
-<nav id="navbar" role="navigation" aria-label="Main navigation">
-  <div class="container nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="MuteGuard Home">
-      <img src="assets/images/icon.png" alt="MuteGuard icon" width="32" height="32" />
-      Mute<span>Guard</span>
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="MuteGuard Home">
+        <img src="assets/images/icon.png" alt="MuteGuard icon" width="32" height="32" />
+        Mute<span>Guard</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#visuals">Gallery</a></li>
+        <li><a href="index.html#why">Why MuteGuard</a></li>
+        <li><a href="index.html#audience">Who's It For</a></li>
+        <li><a href="release-notes.html" style="color:var(--color-accent)">Release Notes</a></li>
+        <li>
+          <a href="https://github.com/sponsors/xionraj" class="btn-nav btn-sponsor" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+            Sponsor
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/xionraj/MuteGuard/releases/latest" class="btn-nav" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download Free
+          </a>
+        </li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html#features">Features</a>
+    <a href="index.html#visuals">Gallery</a>
+    <a href="index.html#why">Why MuteGuard</a>
+    <a href="release-notes.html">Release Notes</a>
+    <a href="https://github.com/sponsors/xionraj" target="_blank" rel="noopener" class="btn-nav btn-sponsor"
+      style="justify-content:center;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </svg>
+      Sponsor
     </a>
+    <a href="https://github.com/xionraj/MuteGuard/releases/latest" target="_blank" rel="noopener" class="btn-nav"
+      style="justify-content:center;">⬇ Download Free</a>
+  </nav>
 
-    <ul class="nav-links" role="list">
-      <li><a href="index.html#features">Features</a></li>
-      <li><a href="index.html#visuals">Gallery</a></li>
-      <li><a href="index.html#why">Why MuteGuard</a></li>
-      <li><a href="index.html#audience">Who's It For</a></li>
-      <li><a href="release-notes.html" style="color:var(--color-accent)">Release Notes</a></li>
-      <li><a href="index.html#donate">Support</a></li>
-      <li>
-        <a href="https://github.com/xionraj/MuteGuard/releases/latest"
-           class="btn-nav"
-           target="_blank"
-           rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Free
-        </a>
-      </li>
-    </ul>
-
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- Mobile nav -->
-<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
-  <a href="index.html#features">Features</a>
-  <a href="index.html#visuals">Gallery</a>
-  <a href="index.html#why">Why MuteGuard</a>
-  <a href="release-notes.html">Release Notes</a>
-  <a href="index.html#donate">♥ Support the Project</a>
-  <a href="https://github.com/xionraj/MuteGuard/releases/latest" target="_blank" rel="noopener" class="btn-nav" style="justify-content:center;">⬇ Download Free</a>
-</nav>
-
-<!-- ═══════════════ HERO ═══════════════ -->
-<div class="rn-hero">
-  <div class="container">
-    <div class="rn-hero-inner">
-      <div class="rn-hero-text" data-reveal>
-        <div class="section-label" style="margin-bottom:16px;">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          Changelog
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <div class="rn-hero">
+    <div class="container">
+      <div class="rn-hero-inner">
+        <div class="rn-hero-text" data-reveal>
+          <div class="section-label" style="margin-bottom:16px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+            Changelog
+          </div>
+          <h1>Release Notes</h1>
+          <p>Every version of MuteGuard, its new features, bug fixes, and improvements — all in one place. Download
+            links included for each release.</p>
         </div>
-        <h1>Release Notes</h1>
-        <p>Every version of MuteGuard, its new features, bug fixes, and improvements — all in one place. Download links included for each release.</p>
+        <div class="rn-hero-actions" data-reveal data-reveal-delay="2">
+          <a href="https://github.com/xionraj/MuteGuard/releases/latest" class="btn btn-primary" target="_blank"
+            rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download Latest
+          </a>
+          <a href="https://github.com/xionraj/MuteGuard/issues" class="btn btn-outline" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+            Report a Bug
+          </a>
+        </div>
       </div>
-      <div class="rn-hero-actions" data-reveal data-reveal-delay="2">
-        <a href="https://github.com/xionraj/MuteGuard/releases/latest"
-           class="btn btn-primary"
-           target="_blank"
-           rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Latest
-        </a>
-        <a href="https://github.com/xionraj/MuteGuard/issues"
-           class="btn btn-outline"
-           target="_blank"
-           rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Report a Bug
-        </a>
-      </div>
-    </div>
 
-    <!-- Filter tabs -->
-    <div class="rn-filter" role="tablist" aria-label="Filter releases">
-      <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Releases</button>
-      <button class="filter-btn" data-filter="latest" role="tab" aria-selected="false">Latest</button>
-      <button class="filter-btn" data-filter="stable" role="tab" aria-selected="false">Stable</button>
+      <!-- Filter tabs -->
+      <div class="rn-filter" role="tablist" aria-label="Filter releases">
+        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Releases</button>
+        <button class="filter-btn" data-filter="latest" role="tab" aria-selected="false">Latest</button>
+        <button class="filter-btn" data-filter="stable" role="tab" aria-selected="false">Stable</button>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- ═══════════════ MAIN CONTENT ═══════════════ -->
-<main class="section-pad" style="padding-top:0;" id="main-content">
-  <div class="container">
-    <div class="rn-layout">
+  <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+  <main class="section-pad" style="padding-top:0;" id="main-content">
+    <div class="container">
+      <div class="rn-layout">
 
-      <!-- ── Left: Timeline ── -->
-      <div>
-        <div class="rn-timeline" id="releases-list">
+        <!-- ── Left: Timeline ── -->
+        <div>
+          <div class="rn-timeline" id="releases-list">
 
-          <!-- ════════════════════════════════════
+            <!-- ════════════════════════════════════
                v4.0 — LATEST
                ════════════════════════════════════ -->
-          <div class="release-entry open" data-tags="latest stable" data-reveal>
-            <div class="timeline-dot" aria-hidden="true"></div>
-            <div class="release-card">
-              <div class="release-header" role="button" aria-expanded="true" tabindex="0" aria-controls="body-v40">
-                <div class="release-meta">
-                  <span class="release-version">v4.0</span>
-                  <span class="release-tag tag-latest">★ Latest</span>
-                  <span class="release-tag tag-stable">Stable</span>
+            <div class="release-entry open" data-tags="latest stable" data-reveal>
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="release-card">
+                <div class="release-header" role="button" aria-expanded="true" tabindex="0" aria-controls="body-v40">
+                  <div class="release-meta">
+                    <span class="release-version">v4.0</span>
+                    <span class="release-tag tag-latest">★ Latest</span>
+                    <span class="release-tag tag-stable">Stable</span>
+                  </div>
+                  <div class="release-header-right">
+                    <span class="release-date">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                      April 2026
+                    </span>
+                    <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
                 </div>
-                <div class="release-header-right">
-                  <span class="release-date">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    April 2026
-                  </span>
-                  <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+
+                <div class="release-body" id="body-v40">
+
+                  <!-- New Features -->
+                  <div class="change-section">
+                    <div class="change-category">
+                      <span class="cat-dot cat-new"></span>
+                      New Features
+                    </div>
+                    <ul class="change-list">
+                      <li><strong>Floating Mini Window</strong> — Always-on-top, borderless, acrylic widget. Draggable
+                        via right-click. Position saved between sessions.</li>
+                      <li><strong>Mini Window Customization</strong> — Scale slider (1–200%), optional visible border,
+                        choose mic / speaker / both icons, DPI-aware rendering.</li>
+                      <li><strong>Dark Mode &amp; Light Mode</strong> — Full theme system with native Windows 11 light
+                        and dark variants. Icons auto-swap per theme.</li>
+                      <li><strong>Custom Icon Picker</strong> — Pick any icon from any <code>.dll</code> or
+                        <code>.ico</code> file using the native Windows icon picker dialog. All four states
+                        customizable.
+                      </li>
+                      <li><strong>Smart Device Detection</strong> — Automatic scan of all connected audio inputs and
+                        outputs. Simple dropdowns to switch between them.</li>
+                      <li><strong>Installer Edition</strong> — Alongside the portable <code>.exe</code>, a full Windows
+                        installer is now available for users who prefer a system-integrated setup with Start Menu &amp;
+                        uninstaller support.</li>
+                      <li><strong>Hover Effects on Mini Window</strong> — Smooth highlight hover animations on each icon
+                        button for a polished, modern feel.</li>
+                      <li><strong>Graceful Error Handling</strong> — Retries device access up to 3 times before
+                        surfacing a tray notification, preventing false mute states.</li>
+                    </ul>
+                  </div>
+
+                  <!-- Improvements -->
+                  <div class="change-section">
+                    <div class="change-category">
+                      <span class="cat-dot cat-improve"></span>
+                      Improvements
+                    </div>
+                    <ul class="change-list">
+                      <li><strong>Right-Click Tray Context Menus</strong> — Expanded menus with direct access to Windows
+                        Sound Settings and Mic Privacy Settings from either tray icon.</li>
+                      <li><strong>Persistent Settings</strong> — All preferences (devices, shortcuts, window position,
+                        theme, icon paths, startup state) saved to a local <code>.ini</code> file and fully restored on
+                        every launch.</li>
+                      <li><strong>Single-Click Mic Tray Toggle</strong> — Left-clicking the mic tray icon now instantly
+                        toggles mute state without opening any menu.</li>
+                      <li><strong>Real-Time Color-Coded Status</strong> — Main panel now displays green (active) and red
+                        (muted) live status for both mic and speaker.</li>
+                      <li><strong>Startup Reliability</strong> — Fixed edge cases where the startup registry entry was
+                        not being applied correctly on some Windows configurations.</li>
+                    </ul>
+                  </div>
+
+                  <!-- Bug Fixes -->
+                  <div class="change-section">
+                    <div class="change-category">
+                      <span class="cat-dot cat-fix"></span>
+                      Bug Fixes
+                    </div>
+                    <ul class="change-list">
+                      <li>Fixed tray icon not updating when device state was changed externally (e.g. from Windows Sound
+                        panel).</li>
+                      <li>Fixed mini window appearing off-screen on secondary monitors after display config changes.
+                      </li>
+                      <li>Fixed keyboard shortcuts not re-registering after Settings were saved without a restart.</li>
+                      <li>Fixed icon path not persisting correctly when using non-default <code>.dll</code> icon
+                        sources.</li>
+                      <li>Fixed occasional crash when no audio devices were detected at launch — now falls back
+                        gracefully with a tray notification.</li>
+                    </ul>
+                  </div>
+
+                  <!-- Changes -->
+                  <div class="change-section">
+                    <div class="change-category">
+                      <span class="cat-dot cat-change"></span>
+                      Changes &amp; Removals
+                    </div>
+                    <ul class="change-list">
+                      <li>Removed all product activation and licensing gates — MuteGuard is now <strong>100% free with
+                          no restrictions</strong>.</li>
+                      <li>Replaced activation section in Settings with a clean <strong>Sponsor / Donate</strong> section
+                        linking to GitHub Sponsors.</li>
+                      <li>Renamed application from <em>MicToggle</em> to <strong>MuteGuard</strong> to better reflect
+                        its dual mic+speaker functionality.</li>
+                      <li>Settings layout reorganized into logical sections for improved usability and discoverability.
+                      </li>
+                      <li>Default icon theme now switches automatically based on the chosen Dark / Light mode
+                        preference.</li>
+                      <li>Mini window default size set to 120% scale.</li>
+                    </ul>
+                  </div>
+
+                </div><!-- /release-body -->
+
+                <div class="release-downloads">
+                  <span class="dl-label">Downloads:</span>
+                  <a href="https://github.com/xionraj/MuteGuard/releases/latest" class="dl-btn dl-btn-installer"
+                    target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Installer (.exe)
+                  </a>
+                  <a href="https://github.com/xionraj/MuteGuard/releases/latest" class="dl-btn dl-btn-portable"
+                    target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Portable (.exe)
+                  </a>
+                  <a href="https://github.com/xionraj/MuteGuard/releases/latest" class="dl-github" target="_blank"
+                    rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    View on GitHub
+                  </a>
                 </div>
               </div>
+            </div><!-- /v4.0 -->
 
-              <div class="release-body" id="body-v40">
-
-                <!-- New Features -->
-                <div class="change-section">
-                  <div class="change-category">
-                    <span class="cat-dot cat-new"></span>
-                    New Features
-                  </div>
-                  <ul class="change-list">
-                    <li><strong>Floating Mini Window</strong> — Always-on-top, borderless, acrylic widget. Draggable via right-click. Position saved between sessions.</li>
-                    <li><strong>Mini Window Customization</strong> — Scale slider (1–200%), optional visible border, choose mic / speaker / both icons, DPI-aware rendering.</li>
-                    <li><strong>Dark Mode &amp; Light Mode</strong> — Full theme system with native Windows 11 light and dark variants. Icons auto-swap per theme.</li>
-                    <li><strong>Custom Icon Picker</strong> — Pick any icon from any <code>.dll</code> or <code>.ico</code> file using the native Windows icon picker dialog. All four states customizable.</li>
-                    <li><strong>Smart Device Detection</strong> — Automatic scan of all connected audio inputs and outputs. Simple dropdowns to switch between them.</li>
-                    <li><strong>Installer Edition</strong> — Alongside the portable <code>.exe</code>, a full Windows installer is now available for users who prefer a system-integrated setup with Start Menu &amp; uninstaller support.</li>
-                    <li><strong>Hover Effects on Mini Window</strong> — Smooth highlight hover animations on each icon button for a polished, modern feel.</li>
-                    <li><strong>Graceful Error Handling</strong> — Retries device access up to 3 times before surfacing a tray notification, preventing false mute states.</li>
-                  </ul>
-                </div>
-
-                <!-- Improvements -->
-                <div class="change-section">
-                  <div class="change-category">
-                    <span class="cat-dot cat-improve"></span>
-                    Improvements
-                  </div>
-                  <ul class="change-list">
-                    <li><strong>Right-Click Tray Context Menus</strong> — Expanded menus with direct access to Windows Sound Settings and Mic Privacy Settings from either tray icon.</li>
-                    <li><strong>Persistent Settings</strong> — All preferences (devices, shortcuts, window position, theme, icon paths, startup state) saved to a local <code>.ini</code> file and fully restored on every launch.</li>
-                    <li><strong>Single-Click Mic Tray Toggle</strong> — Left-clicking the mic tray icon now instantly toggles mute state without opening any menu.</li>
-                    <li><strong>Real-Time Color-Coded Status</strong> — Main panel now displays green (active) and red (muted) live status for both mic and speaker.</li>
-                    <li><strong>Startup Reliability</strong> — Fixed edge cases where the startup registry entry was not being applied correctly on some Windows configurations.</li>
-                  </ul>
-                </div>
-
-                <!-- Bug Fixes -->
-                <div class="change-section">
-                  <div class="change-category">
-                    <span class="cat-dot cat-fix"></span>
-                    Bug Fixes
-                  </div>
-                  <ul class="change-list">
-                    <li>Fixed tray icon not updating when device state was changed externally (e.g. from Windows Sound panel).</li>
-                    <li>Fixed mini window appearing off-screen on secondary monitors after display config changes.</li>
-                    <li>Fixed keyboard shortcuts not re-registering after Settings were saved without a restart.</li>
-                    <li>Fixed icon path not persisting correctly when using non-default <code>.dll</code> icon sources.</li>
-                    <li>Fixed occasional crash when no audio devices were detected at launch — now falls back gracefully with a tray notification.</li>
-                  </ul>
-                </div>
-
-                <!-- Changes -->
-                <div class="change-section">
-                  <div class="change-category">
-                    <span class="cat-dot cat-change"></span>
-                    Changes &amp; Removals
-                  </div>
-                  <ul class="change-list">
-                    <li>Removed all product activation and licensing gates — MuteGuard is now <strong>100% free with no restrictions</strong>.</li>
-                    <li>Replaced activation section in Settings with a clean <strong>Sponsor / Donate</strong> section linking to GitHub Sponsors.</li>
-                    <li>Renamed application from <em>MicToggle</em> to <strong>MuteGuard</strong> to better reflect its dual mic+speaker functionality.</li>
-                    <li>Settings layout reorganized into logical sections for improved usability and discoverability.</li>
-                    <li>Default icon theme now switches automatically based on the chosen Dark / Light mode preference.</li>
-                    <li>Mini window default size set to 120% scale.</li>
-                  </ul>
-                </div>
-
-              </div><!-- /release-body -->
-
-              <div class="release-downloads">
-                <span class="dl-label">Downloads:</span>
-                <a href="https://github.com/xionraj/MuteGuard/releases/latest"
-                   class="dl-btn dl-btn-installer"
-                   target="_blank" rel="noopener">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  Installer (.exe)
-                </a>
-                <a href="https://github.com/xionraj/MuteGuard/releases/latest"
-                   class="dl-btn dl-btn-portable"
-                   target="_blank" rel="noopener">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  Portable (.exe)
-                </a>
-                <a href="https://github.com/xionraj/MuteGuard/releases/latest"
-                   class="dl-github"
-                   target="_blank" rel="noopener">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View on GitHub
-                </a>
-              </div>
-            </div>
-          </div><!-- /v4.0 -->
-
-          <!-- ════════════════════════════════════
+            <!-- ════════════════════════════════════
                v3.x placeholder — kept collapsed
                ════════════════════════════════════ -->
-          <div class="release-entry" data-tags="stable" data-reveal data-reveal-delay="1">
-            <div class="timeline-dot" style="background:var(--color-accent-2);box-shadow:0 0 0 2px var(--color-accent-2),var(--shadow-glow-blue);" aria-hidden="true"></div>
-            <div class="release-card">
-              <div class="release-header" role="button" aria-expanded="false" tabindex="0" aria-controls="body-v3x">
-                <div class="release-meta">
-                  <span class="release-version">v3.x</span>
-                  <span class="release-tag tag-stable">Stable</span>
+            <div class="release-entry" data-tags="stable" data-reveal data-reveal-delay="1">
+              <div class="timeline-dot"
+                style="background:var(--color-accent-2);box-shadow:0 0 0 2px var(--color-accent-2),var(--shadow-glow-blue);"
+                aria-hidden="true"></div>
+              <div class="release-card">
+                <div class="release-header" role="button" aria-expanded="false" tabindex="0" aria-controls="body-v3x">
+                  <div class="release-meta">
+                    <span class="release-version">v3.x</span>
+                    <span class="release-tag tag-stable">Stable</span>
+                  </div>
+                  <div class="release-header-right">
+                    <span class="release-date">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                      2025
+                    </span>
+                    <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
                 </div>
-                <div class="release-header-right">
-                  <span class="release-date">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    2025
-                  </span>
-                  <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
-              </div>
 
-              <div class="release-body" id="body-v3x">
-                <div class="change-section">
-                  <div class="change-category">
-                    <span class="cat-dot cat-new"></span>
-                    New Features
+                <div class="release-body" id="body-v3x">
+                  <div class="change-section">
+                    <div class="change-category">
+                      <span class="cat-dot cat-new"></span>
+                      New Features
+                    </div>
+                    <ul class="change-list">
+                      <li><strong>Dual Audio Control</strong> — Initial implementation of independent mic and speaker
+                        mute controls from a single app.</li>
+                      <li><strong>Keyboard Shortcuts</strong> — Global hotkeys <kbd>Win + Alt + M</kbd> and <kbd>Win +
+                          Alt + S</kbd> introduced.</li>
+                      <li><strong>Dual System Tray Icons</strong> — Two separate tray icons (mic + speaker) with
+                        real-time mute state indicators.</li>
+                      <li><strong>Run at Startup</strong> — Windows startup registry integration added to the Settings
+                        panel.</li>
+                      <li><strong>Shortcut Rebinding</strong> — Settings panel allows remapping both hotkeys to any
+                        custom key combination.</li>
+                    </ul>
                   </div>
-                  <ul class="change-list">
-                    <li><strong>Dual Audio Control</strong> — Initial implementation of independent mic and speaker mute controls from a single app.</li>
-                    <li><strong>Keyboard Shortcuts</strong> — Global hotkeys <kbd>Win + Alt + M</kbd> and <kbd>Win + Alt + S</kbd> introduced.</li>
-                    <li><strong>Dual System Tray Icons</strong> — Two separate tray icons (mic + speaker) with real-time mute state indicators.</li>
-                    <li><strong>Run at Startup</strong> — Windows startup registry integration added to the Settings panel.</li>
-                    <li><strong>Shortcut Rebinding</strong> — Settings panel allows remapping both hotkeys to any custom key combination.</li>
-                  </ul>
-                </div>
-                <div class="change-section">
-                  <div class="change-category">
-                    <span class="cat-dot cat-improve"></span>
-                    Improvements
+                  <div class="change-section">
+                    <div class="change-category">
+                      <span class="cat-dot cat-improve"></span>
+                      Improvements
+                    </div>
+                    <ul class="change-list">
+                      <li>Settings panel redesigned and reorganized into logical sections.</li>
+                      <li>Tray icon right-click menus now include quick-access to Windows Sound Settings.</li>
+                      <li>Improved tray icon rendering resolution for high-DPI displays.</li>
+                    </ul>
                   </div>
-                  <ul class="change-list">
-                    <li>Settings panel redesigned and reorganized into logical sections.</li>
-                    <li>Tray icon right-click menus now include quick-access to Windows Sound Settings.</li>
-                    <li>Improved tray icon rendering resolution for high-DPI displays.</li>
-                  </ul>
-                </div>
-                <div class="change-section">
-                  <div class="change-category">
-                    <span class="cat-dot cat-fix"></span>
-                    Bug Fixes
+                  <div class="change-section">
+                    <div class="change-category">
+                      <span class="cat-dot cat-fix"></span>
+                      Bug Fixes
+                    </div>
+                    <ul class="change-list">
+                      <li>Fixed hotkey not releasing properly when the app was closed and relaunched.</li>
+                      <li>Fixed tray icon default state being incorrect on first launch.</li>
+                    </ul>
                   </div>
-                  <ul class="change-list">
-                    <li>Fixed hotkey not releasing properly when the app was closed and relaunched.</li>
-                    <li>Fixed tray icon default state being incorrect on first launch.</li>
-                  </ul>
                 </div>
-              </div>
 
-              <div class="release-downloads">
-                <span class="dl-label">Downloads:</span>
-                <a href="https://github.com/xionraj/MuteGuard/releases"
-                   class="dl-btn dl-btn-portable"
-                   target="_blank" rel="noopener">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  Portable (.exe)
-                </a>
-                <a href="https://github.com/xionraj/MuteGuard/releases"
-                   class="dl-github"
-                   target="_blank" rel="noopener">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View on GitHub
-                </a>
+                <div class="release-downloads">
+                  <span class="dl-label">Downloads:</span>
+                  <a href="https://github.com/xionraj/MuteGuard/releases" class="dl-btn dl-btn-portable" target="_blank"
+                    rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Portable (.exe)
+                  </a>
+                  <a href="https://github.com/xionraj/MuteGuard/releases" class="dl-github" target="_blank"
+                    rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    View on GitHub
+                  </a>
+                </div>
               </div>
+            </div><!-- /v3.x -->
+
+          </div><!-- /rn-timeline -->
+
+          <!-- No results placeholder -->
+          <div id="no-results" style="display:none; text-align:center; padding:60px 0; color:var(--color-text-muted);">
+            <p style="font-size:1rem;">No releases match this filter.</p>
+          </div>
+        </div><!-- /left col -->
+
+        <!-- ── Right: Sidebar ── -->
+        <aside class="rn-sidebar" aria-label="Release summary">
+          <div class="sidebar-card">
+            <h3>Release Summary</h3>
+            <div class="stat-row">
+              <span class="stat-label">Latest Version</span>
+              <span class="stat-value green">v4.0</span>
             </div>
-          </div><!-- /v3.x -->
+            <div class="stat-row">
+              <span class="stat-label">Status</span>
+              <span class="stat-value">Stable</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Released</span>
+              <span class="stat-value">Apr 2026</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Platform</span>
+              <span class="stat-value">Win 10/11</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Size</span>
+              <span class="stat-value">&lt; 2 MB</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Installer</span>
+              <span class="stat-value green">Yes</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Portable</span>
+              <span class="stat-value green">Yes</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">License</span>
+              <span class="stat-value">MIT</span>
+            </div>
+          </div>
 
-        </div><!-- /rn-timeline -->
+          <div class="sidebar-card">
+            <h3>Quick Links</h3>
+            <div class="sidebar-links">
+              <a href="https://github.com/xionraj/MuteGuard/releases/latest" class="sidebar-link" target="_blank"
+                rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Download Latest
+              </a>
+              <a href="https://github.com/xionraj/MuteGuard/releases" class="sidebar-link" target="_blank"
+                rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                All GitHub Releases
+              </a>
+              <a href="https://github.com/xionraj/MuteGuard/issues" class="sidebar-link" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                Report a Bug
+              </a>
+              <a href="https://github.com/sponsors/xionraj" class="sidebar-link" target="_blank" rel="noopener"
+                style="color:#e85c8d;border-color:rgba(232,92,141,0.2);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:#e85c8d;">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+                Sponsor the Project
+              </a>
+            </div>
+          </div>
+        </aside>
 
-        <!-- No results placeholder -->
-        <div id="no-results" style="display:none; text-align:center; padding:60px 0; color:var(--color-text-muted);">
-          <p style="font-size:1rem;">No releases match this filter.</p>
+      </div><!-- /rn-layout -->
+    </div>
+  </main>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="Back to home">
+            <img src="assets/images/icon.png" alt="MuteGuard icon" width="28" height="28" />
+            Mute<span>Guard</span>
+          </a>
+          <p>A lightweight, free Windows 10/11 audio utility for instant mic and speaker mute control.</p>
         </div>
-      </div><!-- /left col -->
-
-      <!-- ── Right: Sidebar ── -->
-      <aside class="rn-sidebar" aria-label="Release summary">
-        <div class="sidebar-card">
-          <h3>Release Summary</h3>
-          <div class="stat-row">
-            <span class="stat-label">Latest Version</span>
-            <span class="stat-value green">v4.0</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Status</span>
-            <span class="stat-value">Stable</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Released</span>
-            <span class="stat-value">Apr 2026</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Platform</span>
-            <span class="stat-value">Win 10/11</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Size</span>
-            <span class="stat-value">&lt; 2 MB</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Installer</span>
-            <span class="stat-value green">Yes</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Portable</span>
-            <span class="stat-value green">Yes</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">License</span>
-            <span class="stat-value">MIT</span>
-          </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#visuals">Gallery</a></li>
+            <li><a href="index.html#why">Why MuteGuard</a></li>
+            <li><a href="index.html#download">Download</a></li>
+            <li><a href="release-notes.html">Release Notes</a></li>
+          </ul>
         </div>
-
-        <div class="sidebar-card">
-          <h3>Quick Links</h3>
-          <div class="sidebar-links">
-            <a href="https://github.com/xionraj/MuteGuard/releases/latest"
-               class="sidebar-link" target="_blank" rel="noopener">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download Latest
-            </a>
-            <a href="https://github.com/xionraj/MuteGuard/releases"
-               class="sidebar-link" target="_blank" rel="noopener">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              All GitHub Releases
-            </a>
-            <a href="https://github.com/xionraj/MuteGuard/issues"
-               class="sidebar-link" target="_blank" rel="noopener">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              Report a Bug
-            </a>
-            <a href="https://github.com/sponsors/xionraj"
-               class="sidebar-link" target="_blank" rel="noopener"
-               style="color:#e85c8d;border-color:rgba(232,92,141,0.2);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:#e85c8d;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              Sponsor the Project
-            </a>
-          </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="https://github.com/xionraj/MuteGuard" target="_blank" rel="noopener">GitHub Repository</a></li>
+            <li><a href="https://github.com/xionraj/MuteGuard/releases" target="_blank" rel="noopener">All Releases</a>
+            </li>
+            <li><a href="https://github.com/xionraj/MuteGuard/issues" target="_blank" rel="noopener">Report a Bug</a>
+            </li>
+            <li><a href="https://github.com/xionraj/MuteGuard/blob/main/LICENSE" target="_blank" rel="noopener">MIT
+                License</a></li>
+            <li><a href="https://github.com/sponsors/xionraj" target="_blank" rel="noopener">♥ Sponsor</a></li>
+          </ul>
         </div>
-      </aside>
-
-    </div><!-- /rn-layout -->
-  </div>
-</main>
-
-<!-- ═══════════════ FOOTER ═══════════════ -->
-<footer role="contentinfo">
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="index.html" class="nav-logo" aria-label="Back to home">
-          <img src="assets/images/icon.png" alt="MuteGuard icon" width="28" height="28" />
-          Mute<span>Guard</span>
-        </a>
-        <p>A lightweight, free Windows 10/11 audio utility for instant mic and speaker mute control.</p>
       </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="index.html#features">Features</a></li>
-          <li><a href="index.html#visuals">Gallery</a></li>
-          <li><a href="index.html#why">Why MuteGuard</a></li>
-          <li><a href="index.html#download">Download</a></li>
-          <li><a href="release-notes.html">Release Notes</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <ul class="footer-links">
-          <li><a href="https://github.com/xionraj/MuteGuard" target="_blank" rel="noopener">GitHub Repository</a></li>
-          <li><a href="https://github.com/xionraj/MuteGuard/releases" target="_blank" rel="noopener">All Releases</a></li>
-          <li><a href="https://github.com/xionraj/MuteGuard/issues" target="_blank" rel="noopener">Report a Bug</a></li>
-          <li><a href="https://github.com/xionraj/MuteGuard/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a></li>
-          <li><a href="https://github.com/sponsors/xionraj" target="_blank" rel="noopener">♥ Sponsor</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="year">2026</span> <a href="https://github.com/xionraj" target="_blank"
+            rel="noopener">xionraj</a>.
+          Released under the <a href="https://github.com/xionraj/MuteGuard/blob/main/LICENSE" target="_blank"
+            rel="noopener">MIT License</a>.
+          Made with ♥ for the Windows community.
+        </p>
+        <div class="social-links">
+          <a href="https://github.com/xionraj/MuteGuard" class="social-link" target="_blank" rel="noopener"
+            aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+          <a href="https://github.com/sponsors/xionraj" class="social-link" target="_blank" rel="noopener"
+            aria-label="Sponsor" style="color:#e85c8d;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>
-        &copy; <span id="year">2026</span> <a href="https://github.com/xionraj" target="_blank" rel="noopener">xionraj</a>.
-        Released under the <a href="https://github.com/xionraj/MuteGuard/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>.
-        Made with ♥ for the Windows community.
-      </p>
-      <div class="social-links">
-        <a href="https://github.com/xionraj/MuteGuard" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
-        <a href="https://github.com/sponsors/xionraj" class="social-link" target="_blank" rel="noopener" aria-label="Sponsor" style="color:#e85c8d;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<div id="toast" aria-live="polite" aria-atomic="true"></div>
+  <div id="toast" aria-live="polite" aria-atomic="true"></div>
 
-<script src="assets/js/main.js" defer></script>
-<script>
-(function () {
-  'use strict';
+  <script src="assets/js/main.js" defer></script>
+  <script>
+    (function () {
+      'use strict';
 
-  /* ── Accordion toggle ── */
-  document.querySelectorAll('.release-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const entry = header.closest('.release-entry');
-      const isOpen = entry.classList.contains('open');
-      entry.classList.toggle('open', !isOpen);
-      header.setAttribute('aria-expanded', String(!isOpen));
-    });
-    header.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); header.click(); }
-    });
-  });
-
-  /* ── Filter tabs ── */
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const entries = document.querySelectorAll('.release-entry');
-  const noResults = document.getElementById('no-results');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-
-      const filter = btn.dataset.filter;
-      let visible = 0;
-      entries.forEach(entry => {
-        const tags = entry.dataset.tags || '';
-        const show = filter === 'all' || tags.includes(filter);
-        entry.style.display = show ? '' : 'none';
-        if (show) visible++;
+      /* ── Accordion toggle ── */
+      document.querySelectorAll('.release-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const entry = header.closest('.release-entry');
+          const isOpen = entry.classList.contains('open');
+          entry.classList.toggle('open', !isOpen);
+          header.setAttribute('aria-expanded', String(!isOpen));
+        });
+        header.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); header.click(); }
+        });
       });
-      noResults.style.display = visible === 0 ? 'block' : 'none';
-    });
-  });
 
-  /* ── Year ── */
-  const yr = document.getElementById('year');
-  if (yr) yr.textContent = new Date().getFullYear();
-})();
-</script>
+      /* ── Filter tabs ── */
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const entries = document.querySelectorAll('.release-entry');
+      const noResults = document.getElementById('no-results');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+
+          const filter = btn.dataset.filter;
+          let visible = 0;
+          entries.forEach(entry => {
+            const tags = entry.dataset.tags || '';
+            const show = filter === 'all' || tags.includes(filter);
+            entry.style.display = show ? '' : 'none';
+            if (show) visible++;
+          });
+          noResults.style.display = visible === 0 ? 'block' : 'none';
+        });
+      });
+
+      /* ── Year ── */
+      const yr = document.getElementById('year');
+      if (yr) yr.textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
+
 </html>
