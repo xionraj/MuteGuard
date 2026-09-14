@@ -31,7 +31,7 @@
   <style>
     /* ── Release Notes page extras ── */
     .rn-hero {
-      padding: 20px 0 60px;
+      padding: 104px 0 48px;
       background: var(--color-bg);
       position: relative;
       overflow: hidden;
@@ -515,6 +515,118 @@
 
       .timeline-dot {
         left: 2px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .rn-hero {
+        padding: 92px 0 32px;
+      }
+
+      .rn-hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .rn-hero-actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .rn-hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .rn-filter {
+        margin: 28px 0 28px;
+        gap: 8px;
+      }
+
+      .filter-btn {
+        padding: 7px 14px;
+        font-size: 0.8rem;
+      }
+
+      .rn-timeline::before {
+        left: 8px;
+      }
+
+      .release-entry {
+        padding-left: 28px;
+        margin-bottom: 28px;
+      }
+
+      .timeline-dot {
+        left: 0;
+        top: 18px;
+        width: 16px;
+        height: 16px;
+      }
+
+      .release-header {
+        padding: 16px;
+        gap: 10px;
+      }
+
+      .release-meta {
+        gap: 8px;
+      }
+
+      .release-version {
+        font-size: 1.1rem;
+      }
+
+      .release-header-right {
+        gap: 8px;
+      }
+
+      .release-entry.open .release-body {
+        padding: 18px 16px;
+      }
+
+      .change-section {
+        margin-bottom: 20px;
+      }
+
+      .change-category {
+        margin-bottom: 10px;
+      }
+
+      .change-list li {
+        font-size: 0.86rem;
+        line-height: 1.55;
+      }
+
+      .release-downloads {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 14px 16px;
+      }
+
+      .release-downloads .dl-label {
+        font-size: 0.78rem;
+        margin-bottom: 2px;
+      }
+
+      .release-downloads .dl-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 14px;
+        font-size: 0.84rem;
+      }
+
+      .release-downloads .dl-github {
+        justify-content: center;
+        margin: 4px 0 0;
+        padding-top: 4px;
+      }
+
+      .sidebar-card {
+        padding: 18px 16px;
       }
     }
   </style>
