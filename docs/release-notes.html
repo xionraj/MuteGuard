@@ -315,21 +315,23 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .change-list li {
-      display: flex;
-      gap: 10px;
+      position: relative;
+      padding-left: 20px;
       font-size: 0.9rem;
       color: var(--color-text-muted);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .change-list li::before {
       content: '—';
+      position: absolute;
+      left: 0;
+      top: 0;
       color: var(--color-text-subtle);
-      flex-shrink: 0;
     }
 
     .change-list li strong {
@@ -848,26 +850,7 @@
                     </ul>
                   </div>
 
-                  <!-- Changes -->
-                  <div class="change-section">
-                    <div class="change-category">
-                      <span class="cat-dot cat-change"></span>
-                      Changes &amp; Removals
-                    </div>
-                    <ul class="change-list">
-                      <li>Removed all product activation and licensing gates — MuteGuard is now <strong>100% free with
-                          no restrictions</strong>.</li>
-                      <li>Replaced activation section in Settings with a clean <strong>Sponsor / Donate</strong> section
-                        linking to GitHub Sponsors.</li>
-                      <li>Renamed application from <em>MicToggle</em> to <strong>MuteGuard</strong> to better reflect
-                        its dual mic+speaker functionality.</li>
-                      <li>Settings layout reorganized into logical sections for improved usability and discoverability.
-                      </li>
-                      <li>Default icon theme now switches automatically based on the chosen Dark / Light mode
-                        preference.</li>
-                      <li>Mini window default size set to 120% scale.</li>
-                    </ul>
-                  </div>
+
 
                 </div><!-- /release-body -->
 
