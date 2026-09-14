@@ -1,6 +1,6 @@
 <div align="center">
   <img src="docs/assets/images/icon.png" alt="MuteGuard" width="120" />
-  <h1>MuteGuard v4.0</h1>
+  <h1>MuteGuard v4.0 Pro</h1>
   <p>A free, lightweight Windows 10/11 audio utility for instant mic & speaker mute control.</p>
 
   [![Download](https://img.shields.io/github/v/release/xionraj/MuteGuard?color=3fb950&label=Download&style=for-the-badge)](https://github.com/xionraj/MuteGuard/releases/latest)
